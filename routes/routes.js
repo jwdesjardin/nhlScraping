@@ -44,6 +44,15 @@ router.get('/player/games/:slug', async (req, res) => {
 	}
 });
 
+router.get('/players/stats', async (req, res) => {
+	try {
+		const stats = await getPlayerStats();
+
+		res.json(stats);
+	} catch (error) {
+		console.log('error getting player stats');
+	}
+});
 router.get('/leaders/goals', async (req, res) => {
 	try {
 		const stats = await getPlayerStats();
